@@ -2,3 +2,9 @@
 coding-task/.idea
 coding-task/target
 coding-task/project/target
+coding-task/*/.idea
+coding-task/scala/target
+coding-task/scala/project/target
+coding-task/java/build
+coding-task/java/out
+coding-task/java/.gradle
