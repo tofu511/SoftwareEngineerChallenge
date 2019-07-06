@@ -2,9 +2,15 @@ import org.scalatest.FunSuite
 
 class ImmutableQueueTest extends FunSuite {
 
-  test("element should be empty when one element queue is dequeued") {
+  private val emptyQueue = Queue.empty[Int]
+
+  test("isEmpty method should return true when the queue is empty") {
+    assert(emptyQueue.isEmpty)
+  }
+
+  test("isEmpty method should return false when the queue is not empty") {
     val intQueue = ImmutableQueue[Int](1)
-    assert(intQueue.deQueue().isEmpty)
+    assert(intQueue.isEmpty === false)
   }
 
   test("enQueue method should add an element to the end of the queue") {
@@ -16,6 +22,10 @@ class ImmutableQueueTest extends FunSuite {
     val intQueue1 = ImmutableQueue[Int](1, 2)
     val intQueue2 = ImmutableQueue[Int](1, 2, 3)
     assert(intQueue1.enQueue(3) ne intQueue2)
+  }
+
+  test("deQueue method should throw exception when the queue is empty") {
+    assertThrows[UnsupportedOperationException](emptyQueue.deQueue())
   }
 
   test("deQueue method should return queue excluding the first element") {
@@ -32,8 +42,9 @@ class ImmutableQueueTest extends FunSuite {
   test("head method should return first element") {
     val intQueue = ImmutableQueue[Int](1, 2)
     assert(intQueue.head === Some(1))
+  }
 
-    val stringQueue = ImmutableQueue[String]("foo", "bar")
-    assert(stringQueue.head === Some("foo"))
+  test("head method should return None when the queue is empty") {
+    assert(emptyQueue.head === None)
   }
 }
