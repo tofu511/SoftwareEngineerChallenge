@@ -6,5 +6,5 @@ trait Queue[T] {
   def head: Option[T]
 }
 object Queue {
-  def empty[T]: Queue[T] = Queue.empty
+  def empty[T]: Queue[T] = ImmutableQueue[T](Seq.empty: _*)
 }
