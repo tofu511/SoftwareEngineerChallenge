@@ -15,13 +15,12 @@ class ImmutableQueueTest extends FunSuite {
 
   test("enQueue method should add an element to the end of the queue") {
     val intQueue = ImmutableQueue[Int](1, 2)
-    assert(intQueue.enQueue(3) == ImmutableQueue[Int](1, 2, 3))
+    assert(intQueue.enQueue(3) === ImmutableQueue[Int](1, 2, 3))
   }
 
   test("enQueue method should return new instance") {
-    val intQueue1 = ImmutableQueue[Int](1, 2)
-    val intQueue2 = ImmutableQueue[Int](1, 2, 3)
-    assert(intQueue1.enQueue(3) ne intQueue2)
+    val intQueue = ImmutableQueue[Int](1, 2)
+    assert(intQueue.enQueue(3) ne intQueue.enQueue(3))
   }
 
   test("deQueue method should throw exception when the queue is empty") {
@@ -30,13 +29,12 @@ class ImmutableQueueTest extends FunSuite {
 
   test("deQueue method should return queue excluding the first element") {
     val intQueue1 = ImmutableQueue[Int](1, 2, 3)
-    assert(intQueue1.deQueue() == ImmutableQueue[Int](2, 3))
+    assert(intQueue1.deQueue() === ImmutableQueue[Int](2, 3))
   }
 
   test("deQueue method should return new instance") {
-    val intQueue1 = ImmutableQueue[Int](1, 2, 3)
-    val intQueue2 = ImmutableQueue[Int](2, 3)
-    assert(intQueue1.deQueue() ne intQueue2)
+    val intQueue = ImmutableQueue[Int](1, 2, 3)
+    assert(intQueue.deQueue() ne intQueue.deQueue())
   }
 
   test("head method should return first element") {
