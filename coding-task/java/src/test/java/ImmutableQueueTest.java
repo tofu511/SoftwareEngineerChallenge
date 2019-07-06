@@ -41,7 +41,7 @@ public class ImmutableQueueTest {
     public void testHead() {
         assertNull(emptyQueue.head());
         Queue<Integer> integerQueue = new ImmutableQueue<>(Arrays.asList(1, 2, 3));
-        assertEquals((int)integerQueue.head(), 1);
+        assertEquals(integerQueue.head(), Integer.valueOf(1));
     }
 
 }
