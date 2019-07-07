@@ -43,7 +43,7 @@
 ### Apache Flink + Apache Beam
 - データベースにログデータを保存するためのストリーミングETL処理を行う。
 - バグなどで再処理を実行したいが、現在動いているストリーミング処理では行いたくない場合のバッチ処理も実行する。
-- ストリーミング処理とバッチ処理をどちらも実行でき、Alibabaでの大量アクセスをさばいた実績のあることからFlinkを選定した。
+- ストリーミング処理とバッチ処理をどちらも実行でき、Alibabaでの大量アクセスをさばいた実績があることからFlinkを選定した。
 	- [A Flink Series from the Alibaba Tech Team](https://medium.com/@alitech_2017/a-flink-series-from-the-alibaba-tech-team-b8b5539fdc70)
 	- > For the most recent 11.11 of 2018, the Flink engine smoothly supported real-time traffic peaking at 1.7 billion transactions per second.
 - ストリーミング処理とバッチ処理の両方をサポートし、複数の実行環境をサポートしているしているため、処理のモデルとしてApache Beamを選定した。
